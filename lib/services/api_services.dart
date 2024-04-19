@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'dart:math';
+import 'dart:developer';
 
 import 'package:http/http.dart' as http;
 import 'package:netflix/common/utils.dart';
@@ -16,7 +16,8 @@ class ApiServices {
 
     final response = await http.get(Uri.parse(url));
     if (response.statusCode == 200) {
-      log("Success" as num);
+      //debugPrint("Success response: ${response.body}");
+      log("Success response: ${response.body}");
       return UpcomingMovieModel.fromJson(jsonDecode(response.body));
     }
     throw Exception("Failed to load Upcoming Movies");

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:netflix/common/utils.dart';
 import 'package:netflix/models/upcoming_movie_model.dart';
 import 'package:netflix/services/api_services.dart';
+import 'package:netflix/widget/movie_card_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -15,7 +16,6 @@ class _HomeScreenState extends State<HomeScreen> {
   ApiServices apiServices = ApiServices();
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     upcomingFuture = apiServices.getUpcomingMovieModel();
   }
@@ -50,6 +50,19 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           )
         ],
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 230,
+              child: MovieCardWidget(
+                future: upcomingFuture,
+                headLineText: "Upcoming Movies",
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
