@@ -14,11 +14,10 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    Timer(Duration(seconds: 4), () {
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: ((context) => BottomNavBar())));
+    Timer(const Duration(seconds: 6), () {
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: ((context) => const BottomNavBar())));
     });
   }
 
