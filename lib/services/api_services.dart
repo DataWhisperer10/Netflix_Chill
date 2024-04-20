@@ -51,7 +51,7 @@ class ApiServices {
 
   Future<SearchModel> getSearchMovie(String searchText) async {
     endPoint = "search/movie?query=$searchText";
-    final url = "$baseUrl$endPoint$key";
+    final url = "$baseUrl$endPoint";
     print("Search Url is $url");
     final response = await http.get(Uri.parse(url), headers: {
       'Authorization':
