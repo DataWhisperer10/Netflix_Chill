@@ -107,15 +107,17 @@ class _SearchScreenState extends State<SearchScreen> {
                                         children: [
                                           Image.network(
                                             "$imageUrl${data[index].posterPath}",
-                                            height: 180,
+                                            height: 220,
                                           ),
                                           const SizedBox(
                                             width: 10,
                                           ),
                                           SizedBox(
-                                            width: 240,
+                                            width: 140,
                                             child: Text(
                                               data[index].title,
+                                              style:
+                                                  const TextStyle(fontSize: 19),
                                               maxLines: 2,
                                               overflow: TextOverflow.ellipsis,
                                             ),
@@ -146,29 +148,41 @@ class _SearchScreenState extends State<SearchScreen> {
                                   crossAxisSpacing: 5,
                                   childAspectRatio: 1.2 / 2),
                           itemBuilder: (context, index) {
-                            return Column(
-                              children: [
-                                searchModel!.results[index].backdropPath == null
-                                    ? Image.asset(
-                                        "assets/netflix.png",
-                                        height: 170,
-                                      )
-                                    : CachedNetworkImage(
-                                        imageUrl:
-                                            "$imageUrl${searchModel!.results[index].backdropPath}",
-                                        height: 170,
-                                        width: 170,
-                                      ),
-                                SizedBox(
-                                  width: 100,
-                                  child: Text(
-                                    searchModel!.results[index].originalTitle,
-                                    maxLines: 2,
-                                    style: const TextStyle(fontSize: 8),
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                )
-                              ],
+                            return InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            MovieDetailedScreen(
+                                                movieId: searchModel!
+                                                    .results[index].id)));
+                              },
+                              child: Column(
+                                children: [
+                                  searchModel!.results[index].backdropPath ==
+                                          null
+                                      ? Image.asset(
+                                          "assets/netflix.png",
+                                          height: 170,
+                                        )
+                                      : CachedNetworkImage(
+                                          imageUrl:
+                                              "$imageUrl${searchModel!.results[index].backdropPath}",
+                                          height: 170,
+                                          width: 170,
+                                        ),
+                                  SizedBox(
+                                    width: 100,
+                                    child: Text(
+                                      searchModel!.results[index].originalTitle,
+                                      maxLines: 2,
+                                      style: const TextStyle(fontSize: 8),
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  )
+                                ],
+                              ),
                             );
                           })
             ],
