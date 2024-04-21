@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:netflix/common/utils.dart';
 import 'package:netflix/models/movie_recommendation_model.dart';
 import 'package:netflix/models/search_model.dart';
+import 'package:netflix/screens/movie_detailed_screen.dart';
 import 'package:netflix/services/api_services.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -92,13 +93,35 @@ class _SearchScreenState extends State<SearchScreen> {
                                   scrollDirection: Axis.vertical,
                                   itemCount: data!.length,
                                   itemBuilder: (context, index) {
-                                    return Container(
-                                      padding: const EdgeInsets.all(10),
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(20)),
-                                      child: Image.network(
-                                          "$imageUrl${data[index].posterPath}"),
+                                    return InkWell(
+                                      onTap: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: ((context) =>
+                                                    MovieDetailedScreen(
+                                                        movieId:
+                                                            data[index].id))));
+                                      },
+                                      child: Row(
+                                        children: [
+                                          Image.network(
+                                            "$imageUrl${data[index].posterPath}",
+                                            height: 180,
+                                          ),
+                                          const SizedBox(
+                                            width: 10,
+                                          ),
+                                          SizedBox(
+                                            width: 240,
+                                            child: Text(
+                                              data[index].title,
+                                              maxLines: 2,
+                                              overflow: TextOverflow.ellipsis,
+                                            ),
+                                          )
+                                        ],
+                                      ),
                                     );
                                   })
                             ],
