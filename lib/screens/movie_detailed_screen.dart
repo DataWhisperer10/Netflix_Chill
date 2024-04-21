@@ -143,9 +143,22 @@ class _MovieDetailedScreenState extends State<MovieDetailedScreen> {
                                                 crossAxisSpacing: 5,
                                                 childAspectRatio: 1.5 / 2),
                                         itemBuilder: (context, index) {
-                                          return CachedNetworkImage(
-                                              imageUrl:
-                                                  "$imageUrl${movier.results[index].posterPath}");
+                                          return InkWell(
+                                            onTap: () {
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: ((context) =>
+                                                          MovieDetailedScreen(
+                                                              movieId: movier
+                                                                  .results[
+                                                                      index]
+                                                                  .id))));
+                                            },
+                                            child: CachedNetworkImage(
+                                                imageUrl:
+                                                    "$imageUrl${movier.results[index].posterPath}"),
+                                          );
                                           // return null;
                                         },
                                       )
