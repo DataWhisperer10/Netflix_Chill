@@ -10,6 +10,15 @@ class HotNewScreen extends StatefulWidget {
 class _HotNewScreenState extends State<HotNewScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: DefaultTabController(
+          length: 2,
+          child: Scaffold(
+            appBar: AppBar(
+              elevation: 0,
+              title: const Text("New & Hot"),
+            ),
+          )),
+    );
   }
 }

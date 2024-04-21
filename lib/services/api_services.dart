@@ -81,14 +81,28 @@ class ApiServices {
   Future<MovieDetailedModel> getMovieDetail(int movieId) async {
     endPoint = "movie/$movieId";
     final url = "$baseUrl$endPoint$key";
-    print("Search Url is $url");
+    print("Movie Details Url is $url");
+    final response = await http.get(
+      Uri.parse(url),
+    );
+    if (response.statusCode == 200) {
+      log("Movie Details response: ${response.body}");
+      return MovieDetailedModel.fromJson(jsonDecode(response.body));
+    }
+    throw Exception("Failed to load Movie Details");
+  }
+
+  Future<MovieRecommendationModel> getMovieRecommendations(int movieId) async {
+    endPoint = "movie/$movieId/recommendations";
+    final url = "$baseUrl$endPoint$key";
+    print("recommendations Url is $url");
     final response = await http.get(
       Uri.parse(url),
     );
     if (response.statusCode == 200) {
       log("Success response: ${response.body}");
-      return MovieDetailedModel.fromJson(jsonDecode(response.body));
+      return MovieRecommendationModel.fromJson(jsonDecode(response.body));
     }
-    throw Exception("Failed to load Movie Details");
+    throw Exception("Failed to load more movies like this");
   }
 }
