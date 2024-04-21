@@ -25,7 +25,10 @@ class CustomCarouselSlider extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              Text(data.results[index].name)
+              Text(
+                data.results[index].name,
+                style: const TextStyle(fontSize: 18),
+              )
             ],
           ));
         },
