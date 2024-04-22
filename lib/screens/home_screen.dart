@@ -73,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 if (snapshot.hasData) {
                   return CustomCarouselSlider(data: snapshot.data!);
                 } else {
-                  return SizedBox.shrink();
+                  return const SizedBox.shrink();
                 }
               },
             ),

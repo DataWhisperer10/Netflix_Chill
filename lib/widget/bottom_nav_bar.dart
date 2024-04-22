@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/screens/home_screen.dart';
-import 'package:netflix/screens/hot&new_screen.dart';
+import 'package:netflix/screens/more_screen.dart';
 import 'package:netflix/screens/search_screen.dart';
 
 class BottomNavBar extends StatelessWidget {
@@ -34,6 +34,6 @@ class BottomNavBar extends StatelessWidget {
               ),
             ),
             body: const TabBarView(
-                children: [HomeScreen(), SearchScreen(), HotNewScreen()])));
+                children: [HomeScreen(), SearchScreen(), MoreScreen()])));
   }
 }
