@@ -128,9 +128,6 @@ class _MovieDetailedScreenState extends State<MovieDetailedScreen> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       const Text("More Like this"),
-                                      const SizedBox(
-                                        height: 20,
-                                      ),
                                       GridView.builder(
                                         itemCount: movier.results.length,
                                         physics:

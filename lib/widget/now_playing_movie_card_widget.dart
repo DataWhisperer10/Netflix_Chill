@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/common/utils.dart';
-import 'package:netflix/models/upcoming_movie_model.dart';
+import 'package:netflix/models/now_playing_movie_model.dart';
 import 'package:netflix/screens/movie_detailed_screen.dart';
 
-class MovieCardWidget extends StatelessWidget {
-  final Future<UpcomingMovieModel> future;
+class NowPlayingMovieCardWidget extends StatelessWidget {
+  final Future<NowPlayingMovieModel> future;
   final String headLineText;
-  const MovieCardWidget(
+  const NowPlayingMovieCardWidget(
       {super.key, required this.future, required this.headLineText});
 
   @override
@@ -54,9 +54,8 @@ class MovieCardWidget extends StatelessWidget {
             );
           } else {
             return Container(
-              child: Text("No Data Fetched"),
+              child: const Text("No Data Fetched"),
             );
-            //SizedBox.shrink();
           }
         });
   }

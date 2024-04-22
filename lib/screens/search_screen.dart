@@ -48,19 +48,20 @@ class _SearchScreenState extends State<SearchScreen> {
           child: Column(
             children: [
               CupertinoSearchTextField(
-                padding: const EdgeInsets.all(8),
+                padding: const EdgeInsets.all(14),
                 controller: searchController,
                 prefixIcon: const Icon(
                   Icons.search,
-                  color: Colors.white60,
+                  color: Colors.white,
+                  size: 25,
                 ),
                 suffixIcon: const Icon(
                   Icons.cancel,
-                  color: Colors.white60,
+                  color: Colors.white,
                 ),
                 style: TextStyle(
                     color: Colors.white30,
-                    backgroundColor: Colors.grey.withOpacity(0.3)),
+                    backgroundColor: Colors.grey.shade50.withOpacity(0.3)),
                 onChanged: (value) {
                   if (value.isEmpty) {
                   } else {
@@ -129,10 +130,7 @@ class _SearchScreenState extends State<SearchScreen> {
                             ],
                           );
                         } else {
-                          return Container(
-                            child: Text("No Data Fetched"),
-                          );
-                          //SizedBox.shrink();
+                          return const Text("No Data Fetched");
                         }
                       })
                   : searchModel == null

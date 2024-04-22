@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 import 'package:netflix/common/utils.dart';
 import 'package:netflix/models/movie_detail.dart';
 import 'package:netflix/models/movie_recommendation_model.dart';
+import 'package:netflix/models/now_playing_movie_model.dart';
 import 'package:netflix/models/search_model.dart';
 import 'package:netflix/models/tv_series_model.dart';
 import 'package:netflix/models/upcoming_movie_model.dart';
@@ -27,14 +28,14 @@ class ApiServices {
     throw Exception("Failed to load Upcoming Movies");
   }
 
-  Future<UpcomingMovieModel> getNowPlyaingMovies() async {
+  Future<NowPlayingMovieModel> getNowPlyaingMovies() async {
     endPoint = "movie/now_playing";
     final url = "$baseUrl$endPoint$key";
 
     final response = await http.get(Uri.parse(url));
     if (response.statusCode == 200) {
       log("Success response: ${response.body}");
-      return UpcomingMovieModel.fromJson(jsonDecode(response.body));
+      return NowPlayingMovieModel.fromJson(jsonDecode(response.body));
     }
     throw Exception("Failed to load Now Playing Movies");
   }
