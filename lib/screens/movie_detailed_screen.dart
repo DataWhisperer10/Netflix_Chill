@@ -49,7 +49,7 @@ class _MovieDetailedScreenState extends State<MovieDetailedScreen> {
                             decoration: BoxDecoration(
                                 image: DecorationImage(
                                     image: NetworkImage(
-                                        "$imageUrl${movie!.backdropPath}"),
+                                        "$imageUrl${movie.backdropPath}"), //Can use movie!.backdropPath if anything goes wrong
                                     fit: BoxFit.fitHeight)),
                             child: SafeArea(
                               child: Row(
@@ -162,12 +162,15 @@ class _MovieDetailedScreenState extends State<MovieDetailedScreen> {
                                     ],
                                   );
                           }
-                          return const Text("Something went wrong");
+                          return const Text(
+                            "Something went wrong !!",
+                            style: TextStyle(color: Colors.red),
+                          );
                         })
                   ],
                 );
               } else {
-                return const Text("Error");
+                return const Text("Error", style: TextStyle(color: Colors.red));
               }
             }),
       ),

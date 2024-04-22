@@ -61,7 +61,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 ),
                 style: TextStyle(
                     color: Colors.white30,
-                    backgroundColor: Colors.grey.shade50.withOpacity(0.3)),
+                    backgroundColor: Colors.white.withOpacity(0.3)),
                 onChanged: (value) {
                   if (value.isEmpty) {
                   } else {

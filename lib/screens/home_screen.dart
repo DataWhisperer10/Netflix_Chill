@@ -37,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: kBackgroundColor,
         title: Image.asset(
           "assets/logo.png",
-          height: 50,
+          height: 80,
           width: 130,
         ),
         actions: [
@@ -51,6 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: const Icon(
               Icons.search,
               color: Colors.white,
+              size: 30,
             ),
           ),
           Padding(
