@@ -141,7 +141,7 @@ class _SearchScreenState extends State<SearchScreen> {
                           itemCount: searchModel?.results.length,
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 3,
+                                  crossAxisCount: 2,
                                   mainAxisSpacing: 15,
                                   crossAxisSpacing: 5,
                                   childAspectRatio: 1.2 / 2),
@@ -167,15 +167,15 @@ class _SearchScreenState extends State<SearchScreen> {
                                       : CachedNetworkImage(
                                           imageUrl:
                                               "$imageUrl${searchModel!.results[index].backdropPath}",
-                                          height: 170,
-                                          width: 170,
+                                          height: 190,
+                                          width: 190,
                                         ),
                                   SizedBox(
-                                    width: 100,
+                                    width: 150,
                                     child: Text(
                                       searchModel!.results[index].originalTitle,
                                       maxLines: 2,
-                                      style: const TextStyle(fontSize: 8),
+                                      style: const TextStyle(fontSize: 14),
                                       overflow: TextOverflow.ellipsis,
                                     ),
                                   )
